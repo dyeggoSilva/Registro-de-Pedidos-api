@@ -24,7 +24,7 @@ db.run(`CREATE TABLE IF NOT EXISTS pedidos (
 )`);
 
 app.get('/', (req, res) => {
-  return res.json("Olá, Mundo!")
+  return res.json("Olá, Mundo!!")
 });
 
 
