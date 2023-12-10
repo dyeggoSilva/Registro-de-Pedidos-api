@@ -3,13 +3,13 @@ const sqlite3 = require('sqlite3');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Adicione esta linha
 
+const PORT = process.env.PORT || 3001;
+
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware para permitir o uso de JSON no corpo das requisições
 app.use(bodyParser.json());
 app.use(cors()); // Adicione esta linha para habilitar o CORS
+
 
 // Conectar ao banco de dados SQLite (cria o banco se não existir)
 const db = new sqlite3.Database('./mydatabase.db');
@@ -22,6 +22,11 @@ db.run(`CREATE TABLE IF NOT EXISTS pedidos (
     produto TEXT,
     telefone TEXT
 )`);
+
+app.get('/', (req, res) => {
+  return res.json("Olá, Mundo!")
+});
+
 
 // Endpoint para listar todos os pedidos
 app.get('/pedidos', (req, res) => {
