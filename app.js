@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Adicione esta linha
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 
 const app = express();
